@@ -32,4 +32,20 @@ module.exports = function(app){
 
 
 	});
+
+	app.get('/clients', function(req, res){
+		console.log("router line 21 starting getWeather");
+		seneca.act({ role: 'clients', cmd: 'getClients'}, function(err, result){
+			if (err) console.log('ERROR: ', err);
+			else {
+				console.log(result.clients);
+				res.status(200).render(__dirname + '/templates/index.jade', {
+					weather: result.clients
+				});
+			}
+		});
+
+
+
+	});
 }

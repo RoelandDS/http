@@ -5,3 +5,10 @@ html(lang="en")
   body
     h1 Welcome
     p !{weather}
+
+    h1 clients
+
+    ul
+      if clients
+        for client in clients
+        li= client
